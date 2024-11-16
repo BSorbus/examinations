@@ -7,8 +7,12 @@ class Proposal < ApplicationRecord
   ESOD_ODNOWIENIE_Z_EGZAMINEM = 44 
   ESOD_ODNOWIENIE_Z_EGZAMINEM_POPRAWKOWY = 49
 
-  ESOD_CATEGORY_EGZAMIN_NAME = "Wniosek o przeprowadzenie egzaminu i wydanie świadectwa"
-  ESOD_CATEGORY_POPRAWKOWY_NAME = "Wniosek o przeprowadzenie egzaminu poprawkowego i wydanie świadectwa"
+  # ESOD_CATEGORY_EGZAMIN_NAME = "Wniosek o przeprowadzenie egzaminu i wydanie świadectwa"
+  # ESOD_CATEGORY_POPRAWKOWY_NAME = "Wniosek o przeprowadzenie egzaminu poprawkowego i wydanie świadectwa"
+
+  # 2024-11-16
+  ESOD_CATEGORY_EGZAMIN_NAME = "Wniosek o przeprowadzenie egzaminu"
+  ESOD_CATEGORY_POPRAWKOWY_NAME = "Wniosek o przeprowadzenie egzaminu poprawkowego"
 
   HTTP_ERRORS = [
     EOFError,
@@ -47,7 +51,9 @@ class Proposal < ApplicationRecord
                                      PROPOSAL_STATUS_CLOSED ]
 
   CATEGORY_NAME_M = "Świadectwo służby morskiej i żeglugi śródlądowej"
-  CATEGORY_NAME_R = "Świadectwo służby radioamatorskiej"
+  # CATEGORY_NAME_R = "Świadectwo służby radioamatorskiej"
+  # 2024-11-16
+  CATEGORY_NAME_R = "Uprawnienia w służbie radioamatorskiej"
 
   SAVED_IN_NETPAR = 'saved_in_netpar'
   REQUIRED_PUSH_TO_NETPAR = 'required_push_to_netpar'
