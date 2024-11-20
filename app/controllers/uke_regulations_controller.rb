@@ -34,4 +34,3 @@ class UkeRegulationsController < ApplicationController
   end
 
 end
-
