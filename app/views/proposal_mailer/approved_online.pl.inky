@@ -25,15 +25,9 @@
       <p><%= "#{@proposal.exam_fullname}" %></p> 
       <p>otrzymało status <strong>ZAAKCEPTOWANE</strong>.</p>
 
-      <p>Informujemy, że egzamin składać się będzie z dwóch części: </p>
-
-      <p>  - pisemnej, w formie testu, który przeprowadzony będzie na komputerach przygotowanych w tym celu dla Państwa przez Urząd Komunikacji Elektronicznej. Możesz przynieść także swój komputer i zdawać na nim test, jednak UKE nie bierze odpowiedzialności za ewentualnie nieprawidłowości jego pracy.</p>
-
-      <p>  - ustnej z przedmiotu „Przepisy i procedury operatorskie”, który będzie przeprowadzony, w formie rozmowy z egzaminatorem.</p>
-
       <p> <strong>Przystępując do egzaminu proszę pamiętać swój LOGIN oraz HASŁO do aplikacji Egzaminy, przy pomocy, której zapisywaliście się Państwo na egzamin;</strong></p>
 
-      <p>Pierwsza część egzaminu składa się z 4 testów (przedmiotów), po 5 pytań z każdego przedmiotu, czyli łącznie z 20 pytań testowych.
+      <p>Egzamin składa się z 4 testów (przedmiotów), po 5 pytań z każdego przedmiotu, czyli łącznie z 20 pytań testowych.
       Do każdego pytania wybierz tylko jedną odpowiedź (A lub B lub C).</p>
       <p>Na udzielenie 5 odpowiedzi z każdego przedmiotu masz 5 minut. Nie masz możliwości zatrzymania czasu pomiędzy pytaniami z danego przedmiotu.</p>
       <p>Po zatwierdzeniu odpowiedzi na każde pytanie, nie masz możliwości jej zmiany.</p>
