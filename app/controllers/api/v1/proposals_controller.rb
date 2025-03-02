@@ -38,7 +38,7 @@ class Api::V1::ProposalsController < Api::V1::BaseApiController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
-      params.require(:proposal).permit(:proposal_status_id, :not_approved_comment )
+      params.require(:proposal).permit(:proposal_status_id, :not_approved_comment, :exam_id, :exam_fullname, :exam_date_exam)
     end
 
 end
