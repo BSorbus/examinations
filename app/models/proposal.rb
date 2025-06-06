@@ -283,8 +283,12 @@ class Proposal < ApplicationRecord
     [PROPOSAL_STATUS_EXAMINATION_RESULT_N].include?(proposal_status_id)
   end
 
+  def button_test_unlocked?
+    Rails.application.secrets[:test_for_all_unlocked] || (test_unlocked == true)
+  end
+
   def can_take_tests?
-    unless (exam_online == true) && ([PROPOSAL_STATUS_APPROVED].include?(proposal_status_id))
+    unless (exam_online == true) && ([PROPOSAL_STATUS_APPROVED].include?(proposal_status_id)) && button_test_unlocked?
       false
     else
       true

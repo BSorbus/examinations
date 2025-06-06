@@ -28,8 +28,6 @@ class NetparGrade
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.scheme == "https" # Sets the HTTPS verify mode
     # /SSL 
     req = Net::HTTP::Get.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => "Token token=#{NetparUser.netparuser_token}"})
-    # params = {:q => "#{@q}", :page => "#{@page}", :page_limit => "#{@page_limit}", :category => "#{@category}"}
-    # req.body = params.to_json
 
     @response = http.request(req)
 
