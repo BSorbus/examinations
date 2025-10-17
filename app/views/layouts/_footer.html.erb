@@ -1,25 +1,25 @@
 <footer class="footer">
   <div class="row">
     <div class='col-sm-6'>
-      <h4><%= t('.brand') %></h4>
-      <h4><%= t('.brand_address_1') %></h4>
-      <h4><%= t('.brand_address_2') %></h4>
+      <p class="h4-style"><%= t('.brand') %></p>
+      <p class="h4-style"><%= t('.brand_address_1') %></p>
+      <p class="h4-style"><%= t('.brand_address_2') %></p>
       <br>
-      <h5><%= t('.brand_note') %></h5>
+      <p class="h5-style"><%= t('.brand_note') %></p>
       <hr class="visible-xs">
     </div>
 
     <div class='col-sm-3'>
-      <h5><%= t('.contact') %></h5>
+      <p class="h5-style"><%= t('.contact') %></p>
         <ul><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;<%= mail_to t('.contact_mail') %></ul>
       <hr class="visible-xs">
-      <h5><%= t('.contact_mor') %></h5>
+      <p class="h5-style"><%= t('.contact_mor') %></p>
         <ul><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;<%= mail_to t('.contact_mor_mail') %></ul>
       <hr class="visible-xs">
     </div>
 
     <div class="col-sm-3">
-      <h5><%= t('.links') %></h5>
+      <p class="h5-style"><%= t('.links') %></p>
         <ul><span class="fa fa-info-circle"></span>&nbsp;&nbsp;
           <%= link_to static_pages_declaration_path do %>
             <%= t("static_pages.declaration.navbar") %>
@@ -30,7 +30,8 @@
         <ul><span class="fa fa-globe"></span>&nbsp;&nbsp;<%= link_to('Twitter', 'https://twitter.com/uke2uke', target: "_blank") %></ul>
       <hr class="visible-xs">
 
-      <h6 class="pull-right">&copy; 2020 UKE</h6>
+      <p class="h6-style pull-right"><small>&copy; 2020 UKE</small></p>
+
 
     </div>
   </div>  <!-- /row -->
