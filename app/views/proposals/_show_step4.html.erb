@@ -15,8 +15,7 @@
         <%= link_to(  image_tag(
                         partial_data.bank_pdf.preview(resize: '500x500'), 
                         style: 'border: 1px solid #CCC;'),  
-                      url_for(partial_data.bank_pdf),
-                      target: "_blank"  
+                      url_for(partial_data.bank_pdf)
                     ) %>
       <% end %>
     </div>
@@ -27,8 +26,7 @@
         <%= link_to(  image_tag(
                         partial_data.bank_pdf.preview(resize: '258x400'), 
                         style: 'border: 1px solid #CCC;'),  
-                      url_for(partial_data.bank_pdf),
-                      target: "_blank"  
+                      url_for(partial_data.bank_pdf)
                     ) %>
       <% end %>
     </div>
@@ -41,8 +39,7 @@
   				<%= link_to( 	image_tag(
   												partial_data.face_image.representation(resize: '500x500'), 
   												style: 'border: 1px solid #CCC;'),  
-  				 							url_for(partial_data.face_image),
-  				 							target: "_blank"	
+  				 							url_for(partial_data.face_image)
   				 						)  %>
         <% end %>
       </div>
@@ -53,8 +50,7 @@
           <%= link_to(  image_tag(
                           partial_data.face_image.representation(resize: '258x400'), 
                           style: 'border: 1px solid #CCC;'),  
-                        url_for(partial_data.face_image),
-                        target: "_blank"  
+                        url_for(partial_data.face_image)
                       )  %>
         <% end %>
       </div>
@@ -68,8 +64,7 @@
           <%= link_to(  image_tag(
                           partial_data.consent_pdf.representation(resize: '500x500'), 
                           style: 'border: 1px solid #CCC;'),  
-                        url_for(partial_data.consent_pdf),
-                        target: "_blank"  
+                        url_for(partial_data.consent_pdf)
                       )  %>
        <% end %>
       </div>
@@ -80,8 +75,7 @@
           <%= link_to(  image_tag(
                           partial_data.consent_pdf.representation(resize: '258x400'), 
                           style: 'border: 1px solid #CCC;'),  
-                        url_for(partial_data.consent_pdf),
-                        target: "_blank"  
+                        url_for(partial_data.consent_pdf)
                       )  %>
        <% end %>
       </div>
