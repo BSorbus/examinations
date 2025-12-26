@@ -69,6 +69,8 @@ class Proposal < ApplicationRecord
   has_one_attached :bank_pdf
   has_one_attached :face_image
   has_one_attached :consent_pdf
+  has_one_attached :other_pdf
+  attr_accessor :remove_other_pdf
 
   # validates
   validates :creator, presence: true
@@ -112,6 +114,8 @@ class Proposal < ApplicationRecord
   validate :check_attached_face_image, if: -> { required_for_step?(:step4) && status != SAVED_IN_NETPAR }
   validate :check_required_consent_pdf, if: -> { required_for_step?(:step4) && status != SAVED_IN_NETPAR }
   validate :check_attached_consent_pdf, if: -> { required_for_step?(:step4) && status != SAVED_IN_NETPAR }
+  validate :check_required_other_pdf, if: -> { required_for_step?(:step4) && status != SAVED_IN_NETPAR }
+  validate :check_attached_other_pdf, if: -> { required_for_step?(:step4) && status != SAVED_IN_NETPAR }
 
   # step5
   validate :check_confirm_that_the_data_is_correct, if: -> { required_for_step?(form_steps.last) && status != SAVED_IN_NETPAR }
@@ -236,6 +240,7 @@ class Proposal < ApplicationRecord
         self.bank_pdf.purge_later
         self.face_image.purge_later
         self.consent_pdf.purge_later
+        self.other_pdf.purge_later
         #super
         destroy!
         true   # success response
@@ -305,6 +310,10 @@ class Proposal < ApplicationRecord
 
   def consent_pdf_required?
     birth_date >= Time.zone.today - 18.years
+  end
+
+  def other_pdf_required?
+    false
   end
 
   def send_notification
@@ -477,12 +486,24 @@ class Proposal < ApplicationRecord
         self.consent_pdf.purge_later if self.consent_pdf.attached?
         self.consent_pdf_blob_path = nil
       end
+
+      # unless self.other_pdf_required? !!! not required but enabled
+      #   self.other_pdf.purge_later if self.other_pdf.attached?
+      #   self.other_pdf_blob_path = nil
+      # end
+
+      if remove_other_pdf == "1"
+        self.other_pdf.purge_later 
+        self.other_pdf_blob_path = nil
+      end
+
     end
 
     def update_link_for_attached_files
-      self.bank_pdf_blob_path     = Rails.application.routes.url_helpers.rails_blob_path(self.bank_pdf) if self.bank_pdf.attached?
-      self.face_image_blob_path   = Rails.application.routes.url_helpers.rails_blob_path(self.face_image) if self.face_image.attached?
-      self.consent_pdf_blob_path  = Rails.application.routes.url_helpers.rails_blob_path(self.consent_pdf) if self.consent_pdf.attached?
+      self.bank_pdf_blob_path    = Rails.application.routes.url_helpers.rails_blob_path(self.bank_pdf) if self.bank_pdf.attached?
+      self.face_image_blob_path  = Rails.application.routes.url_helpers.rails_blob_path(self.face_image) if self.face_image.attached?
+      self.consent_pdf_blob_path = Rails.application.routes.url_helpers.rails_blob_path(self.consent_pdf) if self.consent_pdf.attached?
+      self.other_pdf_blob_path   = Rails.application.routes.url_helpers.rails_blob_path(self.other_pdf) if self.other_pdf.attached?
     end
 
     def check_pesel
@@ -523,6 +544,12 @@ class Proposal < ApplicationRecord
       end
     end
 
+    def check_required_other_pdf
+      if self.other_pdf_required? 
+        errors.add(:other_pdf, ' - wymaga dodania pliku typu PDF') unless self.other_pdf.attached?
+      end
+    end
+
     def check_attached_bank_pdf
       if self.bank_pdf.attached?
         unless ['application/pdf'].include?(self.bank_pdf.blob.content_type)
@@ -549,6 +576,16 @@ class Proposal < ApplicationRecord
           errors.add(:consent_pdf, ' - nieprawidłowy typ pliku (wymagany typ PDF)')
         else
           errors.add(:consent_pdf, ' - plik jest za duży (max 600kB)') if self.consent_pdf.blob.byte_size > 600000
+        end
+      end
+    end
+
+    def check_attached_other_pdf
+      if self.other_pdf.attached?
+        unless ['application/pdf'].include?(self.other_pdf.blob.content_type)
+          errors.add(:other_pdf, ' - nieprawidłowy typ pliku (wymagany typ PDF)')
+        else
+          errors.add(:other_pdf, ' - plik jest za duży (max 600kB)') if self.other_pdf.blob.byte_size > 600000
         end
       end
     end

@@ -44,6 +44,25 @@
             </div>  
           <% end %>
 
+<!--
+          <%# if @proposal.other_pdf_required? %> -->
+            <div class="row">
+              <div class="form-group require col-sm-12">
+                <%= f.label :other_pdf, class: 'control-label' %>
+                <%= f.file_field :other_pdf, accept: 'application/pdf', autofocus: false, class: 'form-control input-sm', disabled: false %>
+                <% if f.object.other_pdf.attached? %>
+                  <%= f.object.other_pdf.filename.to_s %>
+                  <div class="checkbox">
+                    <label>
+                      <%= f.check_box :remove_other_pdf %> <%= Proposal.human_attribute_name(:remove_other_pdf) %>
+                    </label>
+                  </div>
+                <% end %>
+              </div>
+            </div>  
+<!--
+          <%# end %> -->
+
         </div>  
 
         <div class="form-group col-sm-8">
@@ -59,6 +78,11 @@
                 <% if @proposal.consent_pdf_required? %>
                 <p>W przypadku gdy Zgłoszenie składane jest przez osobę niepełnoletnią należy dołączać upoważnienie rodzica lub prawnego opiekuna. </p>
                 <% end %>
+<!--
+                <#% if @proposal.other_pdf_required? %> -->
+                <p>Jeżeli chcesz przekazać inny załącznik (format pdf), to umieść go w polu "inny załącznik". </p>              
+<!--
+                <#% end %> -->
 
               </blockquote>
             </div> <!-- /.col-sm-5 -->

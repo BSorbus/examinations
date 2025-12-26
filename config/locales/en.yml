@@ -108,6 +108,8 @@ en:
         bank_pdf: 'Bank confirmation of the transfer'
         face_image: 'Photo'
         consent_pdf: 'Parent consent'
+        other_pdf: 'Other attach'
+        remove_other_pdf: 'Remove "other attach"'
         confirm_that_the_data_is_correct: 'The above data is true, which I confirm'
         not_approved_comment: 'Reason for rejecting the application'
     errors:

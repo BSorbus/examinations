@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_06_03_052038) do
+ActiveRecord::Schema.define(version: 2025_12_26_104131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2025_06_03_052038) do
     t.string "address_combine_id", limit: 26, default: ""
     t.boolean "exam_online", default: false, null: false
     t.boolean "test_unlocked", default: false, null: false
+    t.text "other_pdf_blob_path"
     t.index ["category"], name: "index_proposals_on_category"
     t.index ["creator_id", "division_id"], name: "index_proposals_on_creator_id_and_division_id"
     t.index ["creator_id"], name: "index_proposals_on_creator_id"

@@ -47,7 +47,7 @@ class Proposals::WizardStepsController < ApplicationController
                              when "step3"
                                [:status, :category, :division_id, :exam_id, :division_fullname, :division_short_name, :division_min_years_old, :exam_fullname, :exam_date_exam, :exam_online, :exam_fee_id, :exam_fee_price]
                              when "step4"
-                               [:status, :bank_pdf, :face_image, :consent_pdf]
+                               [:status, :bank_pdf, :face_image, :consent_pdf, :other_pdf, :remove_other_pdf]
                              when "step5"
                                [:status, :confirm_that_the_data_is_correct]
                              end
