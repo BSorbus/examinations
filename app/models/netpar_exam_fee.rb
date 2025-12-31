@@ -14,12 +14,13 @@ class NetparExamFee
     Errno::ECONNREFUSED
   ]
 
-  attr_accessor :response, :id, :division_id, :esod_category
+  attr_accessor :response, :id, :division_id, :esod_category, :for_date
 
   def initialize(params = {})
     @id = params.fetch(:id, 0)
     @division_id = params.fetch(:division_id, 0)
     @esod_category = params.fetch(:esod_category, 0)
+    @for_date = params.fetch(:for_date, Time.zone.today.to_s)
   end
 
   def request_with_id
@@ -69,7 +70,7 @@ class NetparExamFee
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.scheme == "https" # Sets the HTTPS verify mode
     # /SSL 
     req = Net::HTTP::Get.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => "Token token=#{NetparUser.netparuser_token}"})
-    params = {:division_id => "#{@division_id}", :esod_category => "#{@esod_category}"}
+    params = {:division_id => "#{@division_id}", :esod_category => "#{@esod_category}", :for_date => "#{@for_date}"}
     req.body = params.to_json
     @response = http.request(req)
 
