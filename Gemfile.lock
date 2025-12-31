@@ -332,7 +332,7 @@ DEPENDENCIES
   mini_magick
   momentjs-rails
   nokogiri (>= 1.15.4)
-  pg (= 1.6.2)
+  pg (~> 1.6.2)
   piwik_analytics
   premailer-rails
   puma (>= 6.4.0)
