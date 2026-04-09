@@ -27,6 +27,7 @@
     <div class="content">
       <%= render 'layouts/header', cached: true %>
       <main>
+        <%= render 'layouts/important_info' %>
         <%= render 'layouts/messages' %>
         <%= yield(:form_errors) %>       
         <%= yield %>

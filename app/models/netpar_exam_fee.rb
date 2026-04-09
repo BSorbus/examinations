@@ -14,13 +14,15 @@ class NetparExamFee
     Errno::ECONNREFUSED
   ]
 
-  attr_accessor :response, :id, :division_id, :esod_category, :for_date
+  attr_accessor :response, :id, :division_id, :esod_category, :for_date, :birth_date, :exam_id
 
   def initialize(params = {})
     @id = params.fetch(:id, 0)
     @division_id = params.fetch(:division_id, 0)
     @esod_category = params.fetch(:esod_category, 0)
     @for_date = params.fetch(:for_date, Time.zone.today.to_s)
+    @birth_date = params.fetch(:birth_date, nil)
+    @exam_id = params.fetch(:exam_id, nil)
   end
 
   def request_with_id
@@ -70,7 +72,13 @@ class NetparExamFee
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.scheme == "https" # Sets the HTTPS verify mode
     # /SSL 
     req = Net::HTTP::Get.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => "Token token=#{NetparUser.netparuser_token}"})
-    params = {:division_id => "#{@division_id}", :esod_category => "#{@esod_category}", :for_date => "#{@for_date}"}
+    params = {
+      :division_id => "#{@division_id}", 
+      :esod_category => "#{@esod_category}", 
+      :for_date => "#{@for_date}", 
+      :birth_date => "#{@birth_date}", 
+      :exam_id => "#{@exam_id}"
+    }
     req.body = params.to_json
     @response = http.request(req)
 

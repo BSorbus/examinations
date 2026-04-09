@@ -464,7 +464,11 @@ class Proposal < ApplicationRecord
     end
 
     def put_exam_fee_values
-      exam_fee_obj = NetparExamFee.new(division_id: self.division_id, esod_category: self.esod_category)
+      exam_fee_obj = NetparExamFee.new(
+        division_id: self.division_id, 
+        esod_category: self.esod_category, 
+        birth_date: self.birth_date,
+        exam_id: self.exam_id)
       if exam_fee_obj.request_find # return true
         response_hash = JSON.parse(exam_fee_obj.response.body)
         self.exam_fee_id = response_hash['id']
@@ -515,7 +519,15 @@ class Proposal < ApplicationRecord
     end
 
     def unique_division_for_creator
-      if Proposal.where(division_id: division_id, creator_id: creator_id, proposal_status_id: [PROPOSAL_STATUS_CREATED, PROPOSAL_STATUS_APPROVED], confirm_that_the_data_is_correct: true).where.not(id: self.id).any? 
+      if Proposal.where(
+           division_id: division_id, 
+           creator_id: creator_id, 
+           proposal_status_id: [PROPOSAL_STATUS_CREATED, PROPOSAL_STATUS_APPROVED], 
+           confirm_that_the_data_is_correct: true
+          ).where.not(
+              id: self.id, 
+              exam_id: nil
+            ).any? 
         errors.add(:division_id, " - Jest aktualnie procedowane Twoje zgłoszenie dla tego typu świadectwa")
         false
       end
