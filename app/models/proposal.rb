@@ -281,7 +281,8 @@ class Proposal < ApplicationRecord
   end
   
   def can_annulled?
-    (exam_date_exam - 5.days > Time.zone.today) && ([PROPOSAL_STATUS_CREATED, PROPOSAL_STATUS_APPROVED].include?(proposal_status_id))
+    # (exam_date_exam - 5.days > Time.zone.today) && ([PROPOSAL_STATUS_CREATED, PROPOSAL_STATUS_APPROVED].include?(proposal_status_id))
+    (exam_date_exam - 14.days > Time.zone.today) && ([PROPOSAL_STATUS_CREATED, PROPOSAL_STATUS_APPROVED].include?(proposal_status_id))
   end
 
   def can_correction_exam?
@@ -466,13 +467,18 @@ class Proposal < ApplicationRecord
     def put_exam_fee_values
       exam_fee_obj = NetparExamFee.new(
         division_id: self.division_id, 
-        esod_category: self.esod_category, 
-        birth_date: self.birth_date,
-        exam_id: self.exam_id)
+        esod_category: self.esod_category,
+        for_date: self.exam_date_exam
+      )
       if exam_fee_obj.request_find # return true
         response_hash = JSON.parse(exam_fee_obj.response.body)
         self.exam_fee_id = response_hash['id']
-        self.exam_fee_price = response_hash['price']
+        unless self.birth_date < 18.years.ago.to_date
+          # Kod dla osób poniżej 18 roku życia
+          self.exam_fee_price = response_hash['price_under18']
+        else
+          self.exam_fee_price = response_hash['price']
+        end
       else
         exam_fee_obj.errors.full_messages.each do |msg|
           self.errors.add(:base, msg.force_encoding("UTF-8"))

@@ -2,8 +2,24 @@ $(document).ready(function() {
 
  function divisionFormatResult(division, container, query, escapeMarkup) {
     if (division.id) {
+      console.log(division.data_obj.min_years_old);
+      if (isEmpty(division.data_obj.min_years_old)) {
+        var min_years_as_str = "0"
+      } else {
+        var min_years_as_str = division.data_obj.min_years_old.toString();
+      }
+      console.log(min_years_as_str);
+      if (min_years_as_str == "0") {
+        min_years_message = '][bez minimalnego wieku]';
+      } else {
+        min_years_message = '][ukończone ' + markMatch(min_years_as_str, query.term) + ' lat]';
+      }
+
+//      return  markMatch(division.data_obj.name, query.term) + 
+//              '<span class="pull-right">&nbsp[' + markMatch(division.data_obj.short_name, query.term) + '][ukończone ' + markMatch(division.data_obj.min_years_old.toString(), query.term) + ' lat]</span>';
+
       return  markMatch(division.data_obj.name, query.term) + 
-              '<span class="pull-right">&nbsp[' + markMatch(division.data_obj.short_name, query.term) + '][ukończone ' + markMatch(division.data_obj.min_years_old.toString(), query.term) + ' lat]</span>';
+              '<span class="pull-right">&nbsp[' + markMatch(division.data_obj.short_name, query.term) + min_years_message;
     } else {
       return "";
     }
