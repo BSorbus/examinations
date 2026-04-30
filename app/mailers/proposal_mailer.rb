@@ -8,7 +8,7 @@ class ProposalMailer < ApplicationMailer
     @proposal = proposal
     @proposal_fullname = "#{proposal_rec_info(@proposal)}"
     @proposal_url_uuid = Rails.application.routes.url_helpers.url_for(only_path: false, controller: 'proposals', action: 'show', multi_app_identifier: @proposal.multi_app_identifier, locale: locale)
-    @uke_sessions_url = proposal.category == 'R' ? "http://bip.uke.gov.pl/jak-uzyskac-rezerwacje--pozwolenie--zezwolenie-tresc/egzaminy-amatorskie,20.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
+    @uke_sessions_url = proposal.category == 'R' ? "https://bip.uke.gov.pl/egzaminy-tresc/egzaminy-w-sluzbie-radiokomunikacyjnej-amatorskiej,1.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
 
     attachments.inline['logo_app.jpg'] = File.read("app/assets/images/logo_application.png")
     attachments.inline['logo_uke.jpg'] = File.read("app/assets/images/logo_uke_pl_do_lewej_small.png")
@@ -20,7 +20,7 @@ class ProposalMailer < ApplicationMailer
     @proposal = proposal
     @proposal_fullname = "#{proposal_rec_info(@proposal)}"
     @proposal_url_uuid = Rails.application.routes.url_helpers.url_for(only_path: false, controller: 'proposals', action: 'show', multi_app_identifier: @proposal.multi_app_identifier, locale: locale)
-    @uke_sessions_url = proposal.category == 'R' ? "http://bip.uke.gov.pl/jak-uzyskac-rezerwacje--pozwolenie--zezwolenie-tresc/egzaminy-amatorskie,20.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
+    @uke_sessions_url = proposal.category == 'R' ? "https://bip.uke.gov.pl/egzaminy-tresc/egzaminy-w-sluzbie-radiokomunikacyjnej-amatorskiej,1.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
     # @uke_sessions_url = proposal.category == 'R' ? "https://bip.uke.gov.pl/jak-uzyskac-rezerwacje--pozwolenie--zezwolenie-tresc/egzaminy-i-pozwolenia-amatorskie,6,0.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
 
     attachments.inline['logo_app.jpg'] = File.read("app/assets/images/logo_application.png")
@@ -35,7 +35,7 @@ class ProposalMailer < ApplicationMailer
     @proposal = proposal
     @proposal_fullname = "#{proposal_rec_info(@proposal)}"
     @proposal_url_uuid = Rails.application.routes.url_helpers.url_for(only_path: false, controller: 'proposals', action: 'show', multi_app_identifier: @proposal.multi_app_identifier, locale: locale)
-    @uke_sessions_url = proposal.category == 'R' ? "http://bip.uke.gov.pl/jak-uzyskac-rezerwacje--pozwolenie--zezwolenie-tresc/egzaminy-amatorskie,20.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
+    @uke_sessions_url = proposal.category == 'R' ? "https://bip.uke.gov.pl/egzaminy-tresc/egzaminy-w-sluzbie-radiokomunikacyjnej-amatorskiej,1.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
 
     attachments.inline['logo_app.jpg'] = File.read("app/assets/images/logo_application.png")
     attachments.inline['logo_uke.jpg'] = File.read("app/assets/images/logo_uke_pl_do_lewej_small.png")
@@ -47,7 +47,7 @@ class ProposalMailer < ApplicationMailer
     @proposal = proposal
     @proposal_fullname = "#{proposal_rec_info(@proposal)}"
     @proposal_url_uuid = Rails.application.routes.url_helpers.url_for(only_path: false, controller: 'proposals', action: 'show', multi_app_identifier: @proposal.multi_app_identifier, locale: locale)
-    @uke_sessions_url = proposal.category == 'R' ? "http://bip.uke.gov.pl/jak-uzyskac-rezerwacje--pozwolenie--zezwolenie-tresc/egzaminy-amatorskie,20.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
+    @uke_sessions_url = proposal.category == 'R' ? "https://bip.uke.gov.pl/egzaminy-tresc/egzaminy-w-sluzbie-radiokomunikacyjnej-amatorskiej,1.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
 
     attachments.inline['logo_app.jpg'] = File.read("app/assets/images/logo_application.png")
     attachments.inline['logo_uke.jpg'] = File.read("app/assets/images/logo_uke_pl_do_lewej_small.png")
@@ -59,7 +59,7 @@ class ProposalMailer < ApplicationMailer
     @proposal = proposal
     @proposal_fullname = "#{proposal_rec_info(@proposal)}"
     @proposal_url_uuid = Rails.application.routes.url_helpers.url_for(only_path: false, controller: 'proposals', action: 'show', multi_app_identifier: @proposal.multi_app_identifier, locale: locale)
-    @uke_sessions_url = proposal.category == 'R' ? "http://bip.uke.gov.pl/jak-uzyskac-rezerwacje--pozwolenie--zezwolenie-tresc/egzaminy-amatorskie,20.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
+    @uke_sessions_url = proposal.category == 'R' ? "https://bip.uke.gov.pl/egzaminy-tresc/egzaminy-w-sluzbie-radiokomunikacyjnej-amatorskiej,1.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
 
     attachments.inline['logo_app.jpg'] = File.read("app/assets/images/logo_application.png")
     attachments.inline['logo_uke.jpg'] = File.read("app/assets/images/logo_uke_pl_do_lewej_small.png")
@@ -127,7 +127,7 @@ class ProposalMailer < ApplicationMailer
     @proposal = proposal
     @proposal_fullname = "#{proposal_rec_info(@proposal)}"
     @proposal_url_uuid = Rails.application.routes.url_helpers.url_for(only_path: false, controller: 'proposals', action: 'show', multi_app_identifier: @proposal.multi_app_identifier, locale: locale)
-    @uke_sessions_url = proposal.category == 'R' ? "http://bip.uke.gov.pl/jak-uzyskac-rezerwacje--pozwolenie--zezwolenie-tresc/egzaminy-amatorskie,20.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
+    @uke_sessions_url = proposal.category == 'R' ? "https://bip.uke.gov.pl/egzaminy-tresc/egzaminy-w-sluzbie-radiokomunikacyjnej-amatorskiej,1.html" : "http://bip.uke.gov.pl/swiadectwa-operatora-urzadzen-radiowych-tresci/swiadectwa-morskie-i-zeglugi-srodladowej,4.html"
 
     attachments.inline['logo_app.jpg'] = File.read("app/assets/images/logo_application.png")
     attachments.inline['logo_uke.jpg'] = File.read("app/assets/images/logo_uke_pl_do_lewej_small.png")

@@ -51,7 +51,8 @@
           <div class="row">
             <div class="col-sm-12">
               <blockquote>
-                <p>Lista sesji, które odbędą się nie wcześniej niż za 14 dni, dla których dostępne są jeszcze wolne miejsca.</p> 
+                <% days = "#{@proposal.category.downcase}" == 'r' ? 7 : 14 %>
+                <p>Lista sesji, które odbędą się nie wcześniej niż za "#{days}" dni, dla których dostępne są jeszcze wolne miejsca.</p> 
                 <p>Warunki wyszukiwania oddzielaj spacją.<br>
                 Np. Bydgo 2022-01<br>
                 Np. kujawsko-pom 2022-01</p>
